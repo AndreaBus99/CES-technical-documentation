@@ -20,7 +20,7 @@ What do you need for this project:
 <h3> Hardware set up </h3>
 Let’s start with getting your ESP32 into your breadboard. Then we will have to connect the joystick to the ESP32. For this project, we are going to use the x-axis and the z-axis. Using your female-to-male wires, map the x-axis to pin #17 and the z-axis to pin #21 (from the joystick to the breadboard location of the ESP32). You do not need to specifically use these pin numbers, however, if you change them you will have to change line 1 of the Arduino code to match the numbers. Finally, also connect 5V and Ground from the joystick to the ESP32. 
 <br>
-Now, let’s connect the button. The button has to be in the middle of the breadboard. Connect one side of it to pin #25 of the ESP32 and the other to Ground. You should be all set up on the hardware part of this project. This is how it should look:
+Now, let’s connect the button. The button has to be in the middle of the breadboard. Connect one side of it to pin #25 of the ESP32 and the other to Ground using the male to male wires. You should be all set up on the hardware part of this project. This is how it should look:
 <br>
 <br>
 <img width="350" alt="Screen Shot 2023-04-03 at 6 21 51 PM" src="https://user-images.githubusercontent.com/80929001/229639945-bdfe49a6-0501-41b7-a0b7-cfabb666f0ed.png">
