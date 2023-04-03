@@ -39,5 +39,8 @@ A hardware project will always have bumps along the way. One problem I had was t
 As for software difficulties, I had a hard time achieving control over the pitch. It seems that for the pitch instead of using AudioPlayer, you need to use AudioOutput from the minim library. So you are not actually controlling the input song, but the output. However, I finally found an example in the Minim library that went over this. 
 <br>
 <br>
+Images of the final project:
+<br>
+<br>
 <img width="1164" alt="Screen Shot 2023-04-03 at 6 40 23 PM" src="https://user-images.githubusercontent.com/80929001/229642275-f1209ef2-275e-4878-b8fe-e9334151fb16.png">
 <img width="1146" alt="Screen Shot 2023-04-03 at 6 39 45 PM" src="https://user-images.githubusercontent.com/80929001/229642218-75b259bb-88a8-4c06-b7e2-7f01382b1f66.png">
