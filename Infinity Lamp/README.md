@@ -8,8 +8,11 @@ What do you need for this project:
 <li> TTGO T-Display ESP32 </li>
 <li> USB-C cable </li>
 <li> Breadboard </li>
-<li> Swtich </li>
+<li> Switch on/off </li>
 <li> 16ft WS2812b LEDs strip </li>
+<li> Clear acrylic sheet </li>
+<li> One-way mirror film </li>
+<li> Super glue </li>
 <li> Wires</li>
 
 
