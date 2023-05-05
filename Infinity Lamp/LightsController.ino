@@ -5,7 +5,6 @@
 #endif
 
 #define DATA_PIN    2
-//#define CLK_PIN   4
 #define LED_TYPE    WS2811
 #define COLOR_ORDER GRB
 #define NUM_LEDS    10
@@ -19,18 +18,18 @@ ezButton toggleSwitch(13);  // create ezButton object that attach to pin 7;
 void setup() {
   delay(3000); // 3 second delay for recovery
   
-  // tell FastLED about the LED strip configuration
+  // LED strip configuration
   FastLED.addLeds<LED_TYPE,DATA_PIN,COLOR_ORDER>(leds, NUM_LEDS).setCorrection(TypicalLEDStrip);
   //FastLED.addLeds<LED_TYPE,DATA_PIN,CLK_PIN,COLOR_ORDER>(leds, NUM_LEDS).setCorrection(TypicalLEDStrip);
 
-  // set master brightness control
+  // brightness control
   FastLED.setBrightness(BRIGHTNESS);
   Serial.begin(9600);
   toggleSwitch.setDebounceTime(50); // set debounce time to 50 milliseconds
 }
 
 
-// List of patterns to cycle through.  Each is defined as a separate function below.
+// List of patterns to loop through
 typedef void (*SimplePatternList[])();
 SimplePatternList gPatterns = { rainbow, rainbowWithGlitter, confetti, sinelon, juggle, bpm };
 
@@ -39,8 +38,9 @@ uint8_t gHue = 0; // rotating "base color" used by many of the patterns
   
 void loop()
 {
-  toggleSwitch.loop(); // MUST call the loop() function first
+  toggleSwitch.loop(); 
 
+  // Cehck the state of the switch  
   if (toggleSwitch.isPressed())
     Serial.println("The switch: OFF -> ON");
 
@@ -61,21 +61,21 @@ void loop()
   else {
     Serial.println("The switch: ON");
     
-    // Call the current pattern function once, updating the 'leds' array
+    // Call the current pattern function once
     gPatterns[gCurrentPatternNumber]();
 
-    // send the 'leds' array out to the actual LED strip
+    // show in LED strip
     FastLED.show();  
-    // insert a delay to keep the framerate modest
+    // delay
     FastLED.delay(1000/FRAMES_PER_SECOND); 
 
-    // do some periodic updates
-    EVERY_N_MILLISECONDS( 20 ) { gHue++; } // slowly cycle the "base color" through the rainbow
-    EVERY_N_SECONDS( 10 ) { nextPattern(); } // change patterns periodically
-    // FastLED.show(); 
+    // do some updated
+    EVERY_N_MILLISECONDS( 20 ) { gHue++; } 
+    EVERY_N_SECONDS( 10 ) { nextPattern(); } // change patterns every 10 seconds
   }
 
 }
+
 
 #define ARRAY_SIZE(A) (sizeof(A) / sizeof((A)[0]))
 
@@ -93,7 +93,7 @@ void rainbow()
 
 void rainbowWithGlitter() 
 {
-  // built-in FastLED rainbow, plus some random sparkly glitter
+  // FastLED built-in rainbow, plus sparkles
   rainbow();
   addGlitter(80);
 }
@@ -115,7 +115,7 @@ void confetti()
 
 void sinelon()
 {
-  // a colored dot sweeping back and forth, with fading trails
+  // a colored lights going back and forth
   fadeToBlackBy( leds, NUM_LEDS, 20);
   int pos = beatsin16(13,0,NUM_LEDS);
   leds[pos] += CHSV( gHue, 255, 192);
@@ -123,7 +123,7 @@ void sinelon()
 
 void bpm()
 {
-  // colored stripes pulsing at a defined Beats-Per-Minute (BPM)
+  // colored stripes at defined Beats-Per-Minute (BPM)
   uint8_t BeatsPerMinute = 62;
   CRGBPalette16 palette = PartyColors_p;
   uint8_t beat = beatsin8( BeatsPerMinute, 64, 255);
@@ -133,7 +133,7 @@ void bpm()
 }
 
 void juggle() {
-  // eight colored dots, weaving in and out of sync with each other
+  // in and out of sync
   fadeToBlackBy( leds, NUM_LEDS, 20);
   byte dothue = 0;
   for( int i = 0; i < 8; i++) {
