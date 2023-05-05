@@ -26,6 +26,10 @@ What do you need for this project:
 5. <h4>Connect wires:</h4> Connect all the wires to the breadboard accordingly (check the Arduino program if you have to change the pins). Don't forget to plug in the switch too!
 6. <h4>Flash code and turn it on:</h4> Connect your lamp to power, and then turn it on using the switch. The lights will turn on and create different patterns. <br> <img width="250" alt="Screen Shot 2023-05-05 at 5 37 27 PM" src="https://user-images.githubusercontent.com/80929001/236572994-b15f685e-efcf-4bfd-8052-3832e9e3c802.png">
 
+<h3> Software set up </h3>
+Make sure you have downloaded the Processing and Arduino Files. Also, download the FastLED library in Arduino. This is a library that is very useful for creating patterns with LEDs. Connect your ESP32 to your laptop to flash the code, and make sure the serial port number is the same in both the Arduino and the Processing. 
+<br>
+<img width="250" alt="Screen Shot 2023-05-05 at 6 13 55 PM" src="https://user-images.githubusercontent.com/80929001/236577255-74e36cb3-7a73-4ede-b562-8baf164d145a.png">
 
 <br>
 <br>
