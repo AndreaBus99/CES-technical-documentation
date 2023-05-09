@@ -7,7 +7,7 @@
 #define DATA_PIN    2
 #define LED_TYPE    WS2811
 #define COLOR_ORDER GRB
-#define NUM_LEDS    10
+#define NUM_LEDS    70
 CRGB leds[NUM_LEDS];
 
 #define BRIGHTNESS          96
@@ -20,7 +20,6 @@ void setup() {
   
   // LED strip configuration
   FastLED.addLeds<LED_TYPE,DATA_PIN,COLOR_ORDER>(leds, NUM_LEDS).setCorrection(TypicalLEDStrip);
-  //FastLED.addLeds<LED_TYPE,DATA_PIN,CLK_PIN,COLOR_ORDER>(leds, NUM_LEDS).setCorrection(TypicalLEDStrip);
 
   // brightness control
   FastLED.setBrightness(BRIGHTNESS);
